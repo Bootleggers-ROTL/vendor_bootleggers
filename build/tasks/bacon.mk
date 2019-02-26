@@ -28,6 +28,7 @@ $(BOOTLEGGERS_TARGET_PACKAGE): $(INTERNAL_OTA_PACKAGE_TARGET)
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(BOOTLEGGERS_TARGET_PACKAGE)
 	$(hide) $(SHA256) $(BOOTLEGGERS_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(BOOTLEGGERS_TARGET_PACKAGE).sha256sum
 	@echo -e ${CL_BLU}""${CL_BLU}
+	@echo -e ${CL_BLU}""${CL_BLU}
 	@echo -e ${CL_BLU}" ######  ####### #        #####  "${CL_BLU}
 	@echo -e ${CL_BLU}" #     #    #    #       #     # "${CL_BLU}
 	@echo -e ${CL_BLU}" #     #    #    #       #       "${CL_BLU}
@@ -42,9 +43,14 @@ $(BOOTLEGGERS_TARGET_PACKAGE): $(INTERNAL_OTA_PACKAGE_TARGET)
 	@echo -e ${CL_CYN}"                "${CL_CYN}
 	@echo -e ${CL_CYN}"                "${CL_CYN}
 	@echo -e ${CL_CYN}"The build is done, be sure to get it on:"${CL_CYN}
-	@echo -e ${CL_CYN}"$(BOOTLEGGERS_TARGET_PACKAGE)"${CL_CYN}
+	@echo -e ${CL_CYN}"${BOOTLEGGERS_TARGET_PACKAGE}"${CL_CYN}
+ifeq ($(BOOTLEGGERS_BUILDTYPE),Shishufied)
+	@echo -e ${CL_CYN}"And your build size is:" $(shell ls -lh ${BOOTLEGGERS_TARGET_PACKAGE}|cut -d" " -f5)"Byte ("$(shell stat -L -t -c %s ${BOOTLEGGERS_TARGET_PACKAGE})" Byte)"${CL_CYN}
+else
+	@echo -e ${CL_CYN}"Your build size is" $(shell ls -lh ${BOOTLEGGERS_TARGET_PACKAGE}|cut -d" " -f5)${CL_CYN}
+endif
 	@echo -e ${CL_CYN}"                "${CL_CYN}
-	@echo -e ${CL_CYN}"Also, enjoy your $(BOOTLEGGERS_BUILD_TYPE) build"${CL_CYN}  
+	@echo -e ${CL_CYN}"Also, enjoy your ${BOOTLEGGERS_BUILDTYPE} build"${CL_CYN}
 
 .PHONY: bacon bootleg bootleggers
 
