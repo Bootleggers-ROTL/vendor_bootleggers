@@ -1,5 +1,5 @@
-# Set Lineage specific identifier for Android Go enabled products
+# Set Bootleggers specific identifier for Android Go enabled products
 PRODUCT_TYPE := go
 
-# Inherit mini common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common_mini_phone.mk)
+# Inherit mini common Bootleggers stuff
+$(call inherit-product, vendor/bootleggers/config/common_mini_phone.mk)

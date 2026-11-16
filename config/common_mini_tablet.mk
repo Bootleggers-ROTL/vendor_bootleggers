@@ -1,7 +1,7 @@
-# Inherit mobile mini common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common_mobile_mini.mk)
+# Inherit mobile mini common Bootleggers stuff
+$(call inherit-product, vendor/bootleggers/config/common_mobile_mini.mk)
 
-# Inherit tablet common Lineage stuff
-$(call inherit-product, vendor/lineage/config/tablet.mk)
+# Inherit tablet common Bootleggers stuff
+$(call inherit-product, vendor/bootleggers/config/tablet.mk)
 
-$(call inherit-product, vendor/lineage/config/telephony.mk)
+$(call inherit-product, vendor/bootleggers/config/telephony.mk)

@@ -1,45 +1,45 @@
-PRODUCT_VERSION_MAJOR = 24
-PRODUCT_VERSION_MINOR = 0
+PRODUCT_VERSION_MAJOR = 8
+PRODUCT_VERSION_MINOR = 6
 
-ifeq ($(LINEAGE_VERSION_APPEND_TIME_OF_DAY),true)
-    LINEAGE_BUILD_DATE := $(shell date -u +%Y%m%d_%H%M%S)
+ifeq ($(BOOTLEGGERS_VERSION_APPEND_TIME_OF_DAY),true)
+    BOOTLEGGERS_BUILD_DATE := $(shell date -u +%Y%m%d_%H%M%S)
 else
-    LINEAGE_BUILD_DATE := $(shell date -u +%Y%m%d)
+    BOOTLEGGERS_BUILD_DATE := $(shell date -u +%Y%m%d)
 endif
 
-# Set LINEAGE_BUILDTYPE from the env RELEASE_TYPE, for jenkins compat
+# Set BOOTLEGGERS_BUILDTYPE from the env RELEASE_TYPE, for jenkins compat
 
-ifndef LINEAGE_BUILDTYPE
+ifndef BOOTLEGGERS_BUILDTYPE
     ifdef RELEASE_TYPE
-        # Starting with "LINEAGE_" is optional
-        RELEASE_TYPE := $(shell echo $(RELEASE_TYPE) | sed -e 's|^LINEAGE_||g')
-        LINEAGE_BUILDTYPE := $(RELEASE_TYPE)
+        # Starting with "BOOTLEGGERS_" is optional
+        RELEASE_TYPE := $(shell echo $(RELEASE_TYPE) | sed -e 's|^BOOTLEGGERS_||g')
+        BOOTLEGGERS_BUILDTYPE := $(RELEASE_TYPE)
     endif
 endif
 
-# Filter out random types, so it'll reset to UNOFFICIAL
-ifeq ($(filter RELEASE NIGHTLY SNAPSHOT EXPERIMENTAL,$(LINEAGE_BUILDTYPE)),)
-    LINEAGE_BUILDTYPE := UNOFFICIAL
-    LINEAGE_EXTRAVERSION :=
+# Filter out random types, so it'll reset to UNOFFICIAL (a.k.a Unshishufied)
+ifeq ($(filter Shishufied Unshishufied Testing,$(BOOTLEGGERS_BUILDTYPE)),)
+    BOOTLEGGERS_BUILDTYPE := Unshishufied
+    BOOTLEGGERS_EXTRAVERSION :=
 endif
 
-ifeq ($(LINEAGE_BUILDTYPE), UNOFFICIAL)
+ifeq ($(BOOTLEGGERS_BUILDTYPE), Unshishufied)
     ifneq ($(TARGET_UNOFFICIAL_BUILD_ID),)
-        LINEAGE_EXTRAVERSION := -$(TARGET_UNOFFICIAL_BUILD_ID)
+        BOOTLEGGERS_EXTRAVERSION := -$(TARGET_UNOFFICIAL_BUILD_ID)
     endif
 endif
 
-LINEAGE_VERSION_SUFFIX := $(LINEAGE_BUILD_DATE)-$(LINEAGE_BUILDTYPE)$(LINEAGE_EXTRAVERSION)-$(LINEAGE_BUILD)
+BOOTLEGGERS_VERSION_SUFFIX := $(BOOTLEGGERS_BUILD_DATE)-$(BOOTLEGGERS_BUILDTYPE)$(BOOTLEGGERS_EXTRAVERSION)-$(BOOTLEGGERS_BUILD)
 
 # Internal version
-LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(LINEAGE_VERSION_SUFFIX)
+BOOTLEGGERS_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(BOOTLEGGERS_VERSION_SUFFIX)
 
 # Display version
-LINEAGE_DISPLAY_VERSION := $(PRODUCT_VERSION_MAJOR)-$(LINEAGE_VERSION_SUFFIX)
+BOOTLEGGERS_DISPLAY_VERSION := $(PRODUCT_VERSION_MAJOR)-$(BOOTLEGGERS_VERSION_SUFFIX)
 
-# LineageOS version properties
+# Bootleggers version properties
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.lineage.version=$(LINEAGE_VERSION) \
-    ro.lineage.display.version=$(LINEAGE_DISPLAY_VERSION) \
-    ro.lineage.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
-    ro.lineage.releasetype=$(LINEAGE_BUILDTYPE)
+    ro.bootleggers.version=$(BOOTLEGGERS_VERSION) \
+    ro.bootleggers.display.version=$(BOOTLEGGERS_DISPLAY_VERSION) \
+    ro.bootleggers.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
+    ro.bootleggers.releasetype=$(BOOTLEGGERS_BUILDTYPE)

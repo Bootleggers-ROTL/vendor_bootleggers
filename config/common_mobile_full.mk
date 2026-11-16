@@ -1,5 +1,5 @@
-# Inherit common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common_mobile.mk)
+# Inherit common Bootleggers stuff
+$(call inherit-product, vendor/bootleggers/config/common_mobile.mk)
 
 PRODUCT_SIZE := full
 
@@ -35,6 +35,6 @@ PRODUCT_PACKAGES += \
     fonts_customization.xml \
     FontGoogleSansFlexOverlay
 
-# Include Lineage LatinIME dictionaries
-PRODUCT_PACKAGE_OVERLAYS += vendor/lineage/overlay/dictionaries
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/lineage/overlay/dictionaries
+# Include Bootleggers LatinIME dictionaries
+PRODUCT_PACKAGE_OVERLAYS += vendor/bootleggers/overlay/dictionaries
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/bootleggers/overlay/dictionaries

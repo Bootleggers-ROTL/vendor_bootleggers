@@ -1,5 +1,5 @@
-# Inherit common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common.mk)
+# Inherit common Bootleggers stuff
+$(call inherit-product, vendor/bootleggers/config/common.mk)
 
-# Inherit Lineage car device tree
-$(call inherit-product, device/lineage/car/lineage_car.mk)
+# Inherit Bootleggers car device tree
+$(call inherit-product, device/bootleggers/car/bootleg_car.mk)
