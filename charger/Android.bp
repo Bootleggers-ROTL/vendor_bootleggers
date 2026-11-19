@@ -35,7 +35,7 @@ prebuilt_etc {
 prebuilt_etc {
     name: "bootleggers_charger_battery_fail_vendor",
     filename: "battery_fail.png",
-    src:"bootleggers_charger_density + "/battery_fail.png",
+    src: bootleggers_charger_density + "/battery_fail.png",
     relative_install_path: "res/images/charger",
     proprietary: true,
 }
