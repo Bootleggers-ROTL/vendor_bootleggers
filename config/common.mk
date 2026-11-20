@@ -133,7 +133,7 @@ PRODUCT_PACKAGES += \
 
 # Bootleggers interfaces
 PRODUCT_PACKAGES += \
-    framework_compatibility_matrix.bootleggers.xml
+    framework_compatibility_matrix.lineage.xml
 
 # Bootleggers packages
 ifeq ($(PRODUCT_IS_ATV),)
