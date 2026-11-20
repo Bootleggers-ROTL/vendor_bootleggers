@@ -10,7 +10,6 @@ $(call inherit-product-if-exists, external/google-fonts/google-sans-flex/fonts.m
 PRODUCT_PACKAGES += \
     Camelot \
     Etar \
-    Profiles \
     Recorder \
     Seedvault \
     Twelve
