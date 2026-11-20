@@ -147,8 +147,8 @@ PRODUCT_PACKAGES += \
     SetupWizard
 endif
 
-PRODUCT_PACKAGES += \
-    BootleggersSettingsProvider
+#PRODUCT_PACKAGES += \
+#    BootleggersSettingsProvider
 
 # Config
 PRODUCT_PACKAGES += \
