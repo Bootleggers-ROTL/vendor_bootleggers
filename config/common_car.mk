@@ -2,4 +2,4 @@
 $(call inherit-product, vendor/bootleggers/config/common.mk)
 
 # Inherit Bootleggers car device tree
-$(call inherit-product, device/bootleggers/car/bootleg_car.mk)
+$(call inherit-product, device/lineage/car/lineage_car.mk)

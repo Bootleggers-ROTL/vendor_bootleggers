@@ -5,7 +5,7 @@ $(call inherit-product, vendor/bootleggers/config/common.mk)
 $(call inherit-product-if-exists, frameworks/base/data/sounds/AudioTv.mk)
 
 # Inherit Bootleggers atv device tree
-$(call inherit-product, device/bootleggers/atv/bootleggers_atv.mk)
+$(call inherit-product, device/lineage/atv/lineage_atv.mk)
 
 # AOSP packages
 PRODUCT_PACKAGES += \
