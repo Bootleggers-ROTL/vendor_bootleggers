@@ -19,7 +19,7 @@ endif
 
 # Filter out random types, so it'll reset to UNOFFICIAL (a.k.a Unshishufied)
 ifeq ($(filter Shishufied Unshishufied Testing,$(BOOTLEGGERS_BUILDTYPE)),)
-    BOOTLEGGERS_BUILDTYPE := Unshishufied
+    BOOTLEGGERS_BUILDTYPE := Testing
     BOOTLEGGERS_EXTRAVERSION :=
 endif
 
