@@ -1,8 +1,8 @@
 PRODUCT_VERSION_MAJOR = 8
 PRODUCT_VERSION_MINOR = 6
 
-ifeq ($(BOOTLEGGERS_VERSION_APPEND_TIME_OF_DAY),true)
-    BOOTLEGGERS_BUILD_DATE := $(shell date +%Y%m%d_%H%M%S)
+ifneq ($(BOOTLEGGERS_BUILDTYPE), Shishufied)
+    BOOTLEGGERS_BUILD_DATE := $(shell date +%Y%m%d-%H%M%S)
 else
     BOOTLEGGERS_BUILD_DATE := $(shell date +%Y%m%d)
 endif
